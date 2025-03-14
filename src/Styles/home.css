@@ -1,0 +1,53 @@
+.welcome{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 1.5s ease;
+}
+
+.welcome.active{
+    opacity: 1;
+    z-index: 10;
+}
+
+.welcome.inactive{
+    opacity: 0;
+    z-index: -1;
+}
+
+@keyframes slideIn{
+  from{
+    opacity: 0;
+    transform: translateY(100px);
+  }to{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.logo{
+  font-size: 3rem;
+  font-weight: bolder;
+  margin: 0;
+  transition: all 1.5s ease;
+  animation: slideIn 1s linear both;
+}
+
+.sub{
+  margin: 0;
+  font-size: 1.5rem;
+  animation: slideIn 2s linear both;
+
+}
+
+.start{
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid;
+  padding: 0.3rem 2rem;
+  border-radius: 15px;
+  animation: slideIn 3s linear both;
+}
