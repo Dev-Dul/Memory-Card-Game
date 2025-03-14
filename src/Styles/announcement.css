@@ -1,0 +1,33 @@
+.announcement{
+    width: 100%;
+    height: 100%; 
+    /* overflow: hidden;   */
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.announcement.active{
+    display: flex;
+}
+
+.announcement.hidden{
+    display: none;
+}
+
+.deets{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.deets h2{
+    color: black;
+}

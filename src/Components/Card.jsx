@@ -1,15 +1,25 @@
 import { useState, useEffect } from "react";
 import '../Styles/card.css'
 
-function Card({ check, handleClick, index, ind }){
+function Card({ check, handleClick, handleBoard, index, ind, resetChecker }){
     const [click, setClick] = useState(0);
-    const group = Math.floor(index / 4);
+    console.log(click);
     console.log(ind);
 
     function clickHandler(){
-        setClick(click + 1);
+        if(click > 0){
+            handleBoard();
+        }else{
+            setClick(click + 1);
+        }
         handleClick();
     }
+
+
+    useEffect(()=> {
+        setClick(0);
+    }, [resetChecker]);
+
 
     return (
         <div className={`card ${check ? "active" : "hidden"}`} onClick={clickHandler} style={{"--index": check ? ind : "unset"}}>

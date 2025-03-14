@@ -1,20 +1,34 @@
 import { useState } from "react";
 import '../Styles/cardparent.css'
 import Card from "./Card";
+import Announcement from "./Announcement";
 import { getIds, randomize } from "./Helpers";
 
 function CardParent(props){
     const [indexes, setIndexes] = useState([0, 1, 2, 3]);
     const [cards, setCards] = useState(getIds());
-    const [indexValue, setIndexValue] = useState([0, 1, 2, 3]);
+    const [board, setBoard] = useState(false);
+    const [isReset, setIsReset] = useState(false);
+    const indexValue = [0, 1, 2, 3];
     let current = 0;
 
     function handleClick(){
         setIndexes(randomize(indexes));
     }
 
+    function handleBoard(){
+      setBoard(true);
+    }
+
+    function reset(){
+      setIndexes([0, 1, 2, 3]);
+      setBoard(false);
+      setIsReset(true);
+    }
+
     return (
       <div className={`card-parent ${props.count === 1 ? "active" : "inactive"}`}>
+        {board && <Announcement reset={reset} />}
         <div className="header">
           <div>
             <h2 className="logo two">ULTIMATE RECALL</h2>
@@ -39,9 +53,7 @@ function CardParent(props){
             if(check){
               current++;
             }
-            // if(current !== 0) current++;
-            // if(current >= 4) current = 0;
-            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} index={index} ind={ind} />
+            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} handleBoard={handleBoard} index={index} ind={ind} resetChecker={isReset}/>
           })}
         </div>
       </div>
