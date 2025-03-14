@@ -9,6 +9,8 @@ function CardParent(props){
     const [cards, setCards] = useState(getIds());
     const [board, setBoard] = useState(false);
     const [isReset, setIsReset] = useState(false);
+    const [score, setScore] = useState(0);
+    const [bestscore, setBestScore] = useState(0);
     const indexValue = [0, 1, 2, 3];
     let current = 0;
 
@@ -20,10 +22,18 @@ function CardParent(props){
       setBoard(true);
     }
 
+    function handleScore(){
+      setScore(score + 1);
+    }
+
     function reset(){
       setIndexes([0, 1, 2, 3]);
       setBoard(false);
       setIsReset(true);
+      setScore(0);
+      if(score > bestscore){
+        setBestScore(score);
+      }
     }
 
     return (
@@ -39,10 +49,10 @@ function CardParent(props){
           </p>
           <div className="score">
             <p>
-              <span>Score:</span> <span></span>
+              <span>Score:</span> {score} <span></span>
             </p>
             <p>
-              <span>Best Score:</span> <span></span>
+              <span>Best Score:</span> {bestscore} <span></span>
             </p>
           </div>
         </div>
@@ -53,7 +63,7 @@ function CardParent(props){
             if(check){
               current++;
             }
-            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} handleBoard={handleBoard} index={index} ind={ind} resetChecker={isReset}/>
+            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} handleBoard={handleBoard} index={index} ind={ind} resetChecker={isReset} handleScore={handleScore} />
           })}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import '../Styles/card.css'
 
-function Card({ check, handleClick, handleBoard, index, ind, resetChecker }){
+function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handleScore }){
     const [click, setClick] = useState(0);
     console.log(click);
     console.log(ind);
@@ -11,6 +11,7 @@ function Card({ check, handleClick, handleBoard, index, ind, resetChecker }){
             handleBoard();
         }else{
             setClick(click + 1);
+            handleScore();
         }
         handleClick();
     }
@@ -19,6 +20,10 @@ function Card({ check, handleClick, handleBoard, index, ind, resetChecker }){
     useEffect(()=> {
         setClick(0);
     }, [resetChecker]);
+
+    useEffect(() => {
+
+    })
 
 
     return (
