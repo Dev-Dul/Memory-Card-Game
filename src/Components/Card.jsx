@@ -1,10 +1,26 @@
 import { useState, useEffect } from "react";
 import '../Styles/card.css'
 
-function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handleScore }){
+function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handleScore, pokemon }){
     const [click, setClick] = useState(0);
+    const [data, setData] = useState({img: null, name: null});
     console.log(click);
     console.log(ind);
+
+    async function fetchData(setData) {
+        try{
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+            if(!response.ok) throw new Error(`error!, status: ${response.status}`);
+            const data = await response.json();
+            setData((prev) => ({
+                ...prev,
+                img: data.sprites.other["official-artwork"].front_default,
+                name: data.name
+            }));
+        }catch(error){
+            console.log(error);
+        }
+    }
 
     function clickHandler(){
         if(click > 0){
@@ -22,14 +38,14 @@ function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handl
     }, [resetChecker]);
 
     useEffect(() => {
-
-    })
+        fetchData(setData);
+    }, []);
 
 
     return (
         <div className={`card ${check ? "active" : "hidden"}`} onClick={clickHandler} style={{"--index": check ? ind : "unset"}}>
-            <h2>{index}</h2>
-            {/* <img src="" alt="" className="img-card"/> */}
+            <img src={data.img} alt={data.name} className="img-card"/>
+            <h2>{data.name}</h2>
         </div>
     )
 }

@@ -11,6 +11,7 @@ function CardParent(props){
     const [isReset, setIsReset] = useState(false);
     const [score, setScore] = useState(0);
     const [bestscore, setBestScore] = useState(0);
+    const pokemons =['pikachu', 'eevee', 'jigglypuff', 'cubchoo', 'emolga', 'stufful', 'wooper', 'chikorita', 'fidough', 'mareep', 'piplup', 'chikorita'];
     const indexValue = [0, 1, 2, 3];
     let current = 0;
 
@@ -41,7 +42,7 @@ function CardParent(props){
         {board && <Announcement reset={reset} />}
         <div className="header">
           <div>
-            <h2 className="logo two">ULTIMATE RECALL</h2>
+            <h2 className="logo two">PokePsygon</h2>
           </div>
           <p className="rule">
             Here's the deal: You earn a point for clicking the cards below,{" "}
@@ -63,7 +64,7 @@ function CardParent(props){
             if(check){
               current++;
             }
-            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} handleBoard={handleBoard} index={index} ind={ind} resetChecker={isReset} handleScore={handleScore} />
+            return <Card check={check} id={card.id} key={card.id} handleClick={handleClick} handleBoard={handleBoard} index={index} pokemon={pokemons[index]} ind={ind} resetChecker={isReset} handleScore={handleScore} />
           })}
         </div>
       </div>

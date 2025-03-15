@@ -23,7 +23,9 @@
     text-align: center;
     text-wrap: wrap;
     margin: 0;
+    margin-top: 1.5rem;
     font-weight: 50;
+    font-size: 0.8rem;
     text-decoration: underline;
     /* max-width: 50%; */
 }
@@ -36,9 +38,10 @@
     text-align: left;
 }
 
-.score P{
-    border: 1px solid;
+.score p{
+    border: 1px solid #0959d1;
     padding: 5px 15px;
+    font-size: 0.8rem;
     border-radius: 10px;
 }
 
