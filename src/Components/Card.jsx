@@ -4,8 +4,8 @@ import '../Styles/card.css'
 function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handleScore, pokemon }){
     const [click, setClick] = useState(0);
     const [data, setData] = useState({img: null, name: null});
-    console.log(click);
-    console.log(ind);
+    const top = (ind === 2 || ind === 3) ? 220 : 0;
+    const left = (ind === 1 || ind === 3) ? 180 : 0;
 
     async function fetchData(setData) {
         try{
@@ -43,7 +43,7 @@ function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handl
 
 
     return (
-        <div className={`card ${check ? "active" : "hidden"}`} onClick={clickHandler} style={{"--index": check ? ind : "unset"}}>
+        <div className={`card ${check ? "active" : "hidden"}`} onClick={clickHandler} style={{"--index": check ? ind : "unset", "--top": check ? `${top}px` : 0, "--left": `${left}px` }}>
             <img src={data.img} alt={data.name} className="img-card"/>
             <h2>{data.name}</h2>
         </div>

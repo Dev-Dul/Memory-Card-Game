@@ -28,7 +28,6 @@ function randomize(arr){
         nums.push(num);
     }
 
-    console.log(nums);
     return nums;
 }
 

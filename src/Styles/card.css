@@ -12,7 +12,6 @@
     top: 0;
     --total: 4;
     --spacing: calc(100% / var(--total));
-    /* --spacing: calc(100% / var((--total))); */
     left: calc(var(--index) * var(--spacing));
     box-shadow: 5px 0px 5px var(--color);
 }
@@ -37,10 +36,8 @@
 
 .img-card{
     width: 70%;
-    /* height: 70%; */
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    /* border: 1px solid red; */
 }
 
 .card > h2{
@@ -54,5 +51,7 @@
         width: 120px;
         height: 180px;
         --total: 2;
+        top: var(--top);
+        left: calc(var(--left));
     }
 }
