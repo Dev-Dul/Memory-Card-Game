@@ -8,6 +8,5 @@ import CardParent from "./Components/Parent";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    {/* <CardParent /> */}
   </StrictMode>,
 )

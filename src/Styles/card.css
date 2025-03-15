@@ -48,3 +48,11 @@
     font-size: 1rem;
     text-transform: capitalize;
 }
+
+@media screen and (max-width: 468px) {
+    .card{
+        width: 120px;
+        height: 180px;
+        --total: 2;
+    }
+}

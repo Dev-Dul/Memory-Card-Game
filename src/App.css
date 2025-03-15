@@ -25,3 +25,14 @@
 .container > *{
   position: absolute;
 }
+
+@media screen  and (max-width: 468px){
+  #root{
+    width: 100%;
+  }
+
+  .container{
+    width: 70vw;
+    margin: 0 auto;
+  }
+}
