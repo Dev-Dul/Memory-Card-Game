@@ -5,7 +5,7 @@ function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handl
     const [click, setClick] = useState(0);
     const [data, setData] = useState({img: null, name: null});
     const top = (ind === 2 || ind === 3) ? 220 : 0;
-    const left = (ind === 1 || ind === 3) ? 180 : 0;
+    const left = (ind === 1 || ind === 3) ? 170 : 0;
 
     async function fetchData(setData) {
         try{

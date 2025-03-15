@@ -60,6 +60,10 @@
 }
 
 @media screen and (max-width: 468px) {
+    .card-parent{
+        overflow: visible;
+    }
+    
     .rule br{
         display: none;
     }
