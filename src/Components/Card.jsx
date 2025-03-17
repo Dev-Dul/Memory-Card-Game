@@ -4,7 +4,7 @@ import '../Styles/card.css'
 function Card({ check, handleClick, handleBoard, index, ind, resetChecker, handleScore, pokemon }){
     const [click, setClick] = useState(0);
     const [data, setData] = useState({img: null, name: null});
-    const top = (ind === 2 || ind === 3) ? 220 : 0;
+    const top = (ind === 2 || ind === 3) ? 170 : -25;
     const left = (ind === 1 || ind === 3) ? 170 : 0;
 
     async function fetchData(setData) {
