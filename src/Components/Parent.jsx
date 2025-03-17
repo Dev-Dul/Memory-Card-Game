@@ -20,7 +20,7 @@ function CardParent(props){
     }
 
     function handleBoard(){
-      setBoard(true);
+      setBoard((prev) => !prev);
     }
 
     function handleScore(){

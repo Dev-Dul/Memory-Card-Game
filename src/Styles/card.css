@@ -49,7 +49,7 @@
 @media screen and (max-width: 468px) {
     .card{
         width: 120px;
-        height: 180px;
+        height: 165px;
         --total: 2;
         top: var(--top);
         left: calc(var(--left));
