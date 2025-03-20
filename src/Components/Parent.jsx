@@ -20,7 +20,7 @@ function CardParent(props){
     }
 
     function handleBoard(){
-      setBoard((prev) => !prev);
+      setBoard(true);
     }
 
     function handleScore(){
@@ -30,7 +30,7 @@ function CardParent(props){
     function reset(){
       setIndexes([0, 1, 2, 3]);
       setBoard(false);
-      setIsReset(true);
+      setIsReset((prev) => !prev);
       setScore(0);
       if(score > bestscore){
         setBestScore(score);
